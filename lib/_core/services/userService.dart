@@ -1,4 +1,3 @@
-
 class UserService {
-
+  String userToken = "";
 }
