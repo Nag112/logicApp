@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "784625431619",
+    "project_id": "logic-c874e",
+    "storage_bucket": "logic-c874e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784625431619:android:f5d7ac478124e4e8b3d0f6",
+        "android_client_info": {
+          "package_name": "com.logic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784625431619-v1u0bejm9au19d76hua6uf61rpkpmi46.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.logic",
+            "certificate_hash": "d0102b85fe7f80fb9328f97c937c30c9e1488128"
+          }
+        },
+        {
+          "client_id": "784625431619-ftfbm8a2m21401586fephc5vfe4t1cn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnc-gPDR1b-taraJfcuLZYOkXn9kBdER0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784625431619-ftfbm8a2m21401586fephc5vfe4t1cn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
