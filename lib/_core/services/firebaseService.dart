@@ -2,14 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logic/_core/app/app.locator.dart';
 import 'package:logic/_core/services/utilsService.dart';
 
-import 'userService.dart';
-
 class FirebaseService {
   String? _verificationId;
   UtilsService _utils = locator<UtilsService>();
-  UserService _user = locator<UserService>();
+  String? phone;
+  User? get loggedUser => FirebaseAuth.instance.currentUser;
   Future<void> sendOTP(mobile) async {
-    _user.phone = mobile;
+    phone = mobile;
     final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
       this._verificationId = verId;
     };
@@ -36,7 +35,7 @@ class FirebaseService {
 
   login() async {}
   resendOTP() async {
-    sendOTP(_user.phone!);
+    sendOTP(phone!);
   }
 
   Future verifyOTP(otp) async {
@@ -45,14 +44,7 @@ class FirebaseService {
         verificationId: _verificationId!,
         smsCode: otp,
       );
-      UserCredential _temp =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-
-      _user.loggedUser = _temp.user;
-      _user.userToken = _temp.user?.uid;
-
-      _user.saveUserCredentials(credential);
-
+      await FirebaseAuth.instance.signInWithCredential(credential);
       return true;
     } catch (e) {
       _utils.showToast("Invalid OTP");

@@ -12,7 +12,6 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../services/connectivityService.dart';
 import '../services/firebaseService.dart';
-import '../services/userService.dart';
 import '../services/utilsService.dart';
 
 final locator = StackedLocator.instance;
@@ -29,5 +28,4 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => ConnectivityService());
   locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => FirebaseService());
-  locator.registerLazySingleton(() => UserService());
-}
+  }
