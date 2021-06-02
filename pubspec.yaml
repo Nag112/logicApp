@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   bot_toast: ^4.0.1
+  cloud_firestore: ^2.2.0
   connectivity: ^3.0.4
   dio: ^4.0.0
   firebase_auth: ^1.2.0

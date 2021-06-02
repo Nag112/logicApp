@@ -1,3 +1,4 @@
+import 'package:logic/_core/services/databaseService.dart';
 import 'package:logic/views/authentication/otp/otp.dart';
 import 'package:logic/views/calculation/calcyScreen.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -24,8 +25,8 @@ import 'package:logic/views/splashScreen/splashScreen.dart';
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: UtilsService),
     LazySingleton(classType: ConnectivityService),
-    LazySingleton(classType: SnackbarService),
     LazySingleton(classType: FirebaseService),
+    LazySingleton(classType: DatabaseService),
   ],
 )
 class AppSetup {}
