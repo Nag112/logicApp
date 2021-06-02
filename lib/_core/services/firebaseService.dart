@@ -33,7 +33,10 @@ class FirebaseService {
     );
   }
 
-  login() async {}
+  logout() async{
+    await FirebaseAuth.instance.signOut();
+  }
+
   resendOTP() async {
     sendOTP(phone!);
   }
