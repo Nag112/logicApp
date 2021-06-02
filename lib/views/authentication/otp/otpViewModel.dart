@@ -18,7 +18,7 @@ class OTPViewModel extends BaseViewModel {
     if (otp.length == 6) {
       _firebase.verifyOTP(otp).then((value) {
         if (value) {
-          _nav.clearStackAndShow(Routes.profileScreen);
+          _nav.clearStackAndShow(Routes.calcyScreen);
         }
       }).catchError((e) {
         print(e);

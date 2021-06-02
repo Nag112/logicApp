@@ -11,6 +11,7 @@ import 'package:stacked/stacked.dart';
 
 import '../../views/authentication/login/loginScreen.dart';
 import '../../views/authentication/otp/otp.dart';
+import '../../views/calculation/calcyScreen.dart';
 import '../../views/profile/profileScreen.dart';
 import '../../views/splashScreen/splashScreen.dart';
 
@@ -19,11 +20,13 @@ class Routes {
   static const String loginScreen = '/login-screen';
   static const String oTPScreen = '/o-tp-screen';
   static const String profileScreen = '/profile-screen';
+  static const String calcyScreen = '/calcy-screen';
   static const all = <String>{
     splashScreen,
     loginScreen,
     oTPScreen,
     profileScreen,
+    calcyScreen,
   };
 }
 
@@ -35,6 +38,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.loginScreen, page: LoginScreen),
     RouteDef(Routes.oTPScreen, page: OTPScreen),
     RouteDef(Routes.profileScreen, page: ProfileScreen),
+    RouteDef(Routes.calcyScreen, page: CalcyScreen),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -63,5 +67,24 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    CalcyScreen: (data) {
+      var args = data.getArgs<CalcyScreenArguments>(
+        orElse: () => CalcyScreenArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => CalcyScreen(key: args.key),
+        settings: data,
+      );
+    },
   };
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// CalcyScreen arguments holder class
+class CalcyScreenArguments {
+  final Key? key;
+  CalcyScreenArguments({this.key});
 }

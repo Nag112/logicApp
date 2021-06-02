@@ -5,7 +5,7 @@ enum ValidationType { EMAIL, PHONE, TEXT, NO_CHAR, CUSTOM }
 
 class RoundedInputField extends StatelessWidget {
   final String hintText;
-  final IconData icon;
+  final IconData? icon;
   final TextInputType? keyboardType;
   final bool? readOnly;
   final String? Function(String?)? validator;
@@ -16,7 +16,7 @@ class RoundedInputField extends StatelessWidget {
   const RoundedInputField({
     Key? key,
     required this.hintText,
-    required this.icon,
+    this.icon,
     required this.onChanged,
     this.keyboardType = TextInputType.text,
     this.readOnly = false,
@@ -97,10 +97,12 @@ class RoundedInputField extends StatelessWidget {
           fillColor: kPrimaryLightColor,
           focusColor: kPrimaryLightColor,
           contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-          prefixIcon: Icon(
-            icon,
-            color: kPrimaryColor,
-          ),
+          prefixIcon: icon != null
+              ? Icon(
+                  icon,
+                  color: kPrimaryColor,
+                )
+              : null,
           hintText: hintText,
           border: OutlineInputBorder(
             borderSide: BorderSide.none,

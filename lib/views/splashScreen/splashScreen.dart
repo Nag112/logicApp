@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 2), () {
       if (_firebase.loggedUser != null) {
-        _nav.replaceWith(Routes.profileScreen);
+        _nav.replaceWith(Routes.calcyScreen);
       } else {
         _nav.replaceWith(Routes.loginScreen);
       }
