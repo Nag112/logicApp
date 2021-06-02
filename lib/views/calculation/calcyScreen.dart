@@ -29,85 +29,15 @@ class CalcyScreen extends StatelessWidget {
           child: ListView(
             shrinkWrap: true,
             children: [
-              RoundedInputField(
-                hintText: "one",
-                onChanged: (val) => viewModel.onText('one', val),
-              ),
-              RoundedInputField(
-                hintText: "two",
-                onChanged: (val) => viewModel.onText('two', val),
-              ),
-              RoundedInputField(
-                hintText: "three",
-                onChanged: (val) => viewModel.onText('three', val),
-              ),
-              RoundedInputField(
-                hintText: "four",
-                onChanged: (val) => viewModel.onText('four', val),
-              ),
-              RoundedInputField(
-                hintText: "five",
-                onChanged: (val) => viewModel.onText('five', val),
-              ),
-              RoundedInputField(
-                hintText: "six",
-                onChanged: (val) => viewModel.onText('six', val),
-              ),
-              RoundedInputField(
-                hintText: "seven",
-                onChanged: (val) => viewModel.onText('seven', val),
-              ),
-              RoundedInputField(
-                hintText: "eight",
-                onChanged: (val) => viewModel.onText('eight', val),
-              ),
-              RoundedInputField(
-                hintText: "nine",
-                onChanged: (val) => viewModel.onText('nine', val),
-              ),
-              RoundedInputField(
-                hintText: "ten",
-                onChanged: (val) => viewModel.onText('ten', val),
-              ),
-              RoundedInputField(
-                hintText: "eleven",
-                onChanged: (val) => viewModel.onText('eleven', val),
-              ),
-              RoundedInputField(
-                hintText: "twelve",
-                onChanged: (val) => viewModel.onText('twelve', val),
-              ),
-              RoundedInputField(
-                hintText: "thirteen",
-                onChanged: (val) => viewModel.onText('thirteen', val),
-              ),
-              RoundedInputField(
-                hintText: "14",
-                onChanged: (val) => viewModel.onText('14', val),
-              ),
-              RoundedInputField(
-                hintText: "15",
-                onChanged: (val) => viewModel.onText('15', val),
-              ),
-              RoundedInputField(
-                hintText: "16",
-                onChanged: (val) => viewModel.onText('16', val),
-              ),
-              RoundedInputField(
-                hintText: "17",
-                onChanged: (val) => viewModel.onText('17', val),
-              ),
-              RoundedInputField(
-                hintText: "18",
-                onChanged: (val) => viewModel.onText('18', val),
-              ),
-              RoundedInputField(
-                hintText: "19",
-                onChanged: (val) => viewModel.onText('19', val),
-              ),
-              RoundedInputField(
-                hintText: "20",
-                onChanged: (val) => viewModel.onText('20', val),
+              ...List.generate(
+                viewModel.textFields.length,
+                (index) => RoundedInputField(
+                  hintText: viewModel.textFields[index],
+                  value:
+                      viewModel.input[viewModel.textFields[index]].toString(),
+                  onChanged: (val) =>
+                      viewModel.onText(viewModel.textFields[index], val),
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -202,7 +132,7 @@ class RoundedInputField extends StatelessWidget {
             child: TextFormField(
               onChanged: onChanged,
               keyboardType: TextInputType.number,
-              initialValue: value != null ? value : '',
+              initialValue: value.toString() != 'null' ? value : '',
               onEditingComplete: () => FocusScope.of(context).nextFocus(),
               decoration: InputDecoration(
                 contentPadding:

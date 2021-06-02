@@ -9,6 +9,29 @@ class CalcyScreenViewModel extends BaseViewModel {
   int result = 0;
   bool showResult = false;
   Map<String, int> _input = {};
+  Map<String, int> get input => _input;
+  List<String> textFields = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20'
+  ];
   NavigationService _nav = locator<NavigationService>();
   FirebaseService _firebase = locator<FirebaseService>();
   DatabaseService _database = locator<DatabaseService>();
@@ -28,8 +51,9 @@ class CalcyScreenViewModel extends BaseViewModel {
       print(element);
       result += element;
     });
-    _input['result'] = result;
-    _database.addItem(_firebase.loggedUser?.uid, _input);
+    Map<String, int> _temp = {..._input};
+    _temp['result'] = result;
+    _database.addItem(_firebase.loggedUser?.uid, _temp);
     showResult = true;
     notifyListeners();
   }
