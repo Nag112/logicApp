@@ -8,20 +8,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:logic/views/authentication/login/loginScreen.dart';
-import 'package:logic/views/authentication/signUp/signUpScreen.dart';
-import 'package:logic/views/profile/profileScreen.dart';
-import 'package:logic/views/splashScreen/splashScreen.dart';
+
+import '../../views/authentication/login/loginScreen.dart';
+import '../../views/authentication/otp/otp.dart';
+import '../../views/profile/profileScreen.dart';
+import '../../views/splashScreen/splashScreen.dart';
 
 class Routes {
   static const String splashScreen = '/';
   static const String loginScreen = '/login-screen';
-  static const String signUpScreen = '/sign-up-screen';
+  static const String oTPScreen = '/o-tp-screen';
   static const String profileScreen = '/profile-screen';
   static const all = <String>{
     splashScreen,
     loginScreen,
-    signUpScreen,
+    oTPScreen,
     profileScreen,
   };
 }
@@ -32,7 +33,7 @@ class StackedRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.splashScreen, page: SplashScreen),
     RouteDef(Routes.loginScreen, page: LoginScreen),
-    RouteDef(Routes.signUpScreen, page: SignUpScreen),
+    RouteDef(Routes.oTPScreen, page: OTPScreen),
     RouteDef(Routes.profileScreen, page: ProfileScreen),
   ];
   @override
@@ -50,9 +51,9 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
-    SignUpScreen: (data) {
+    OTPScreen: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SignUpScreen(),
+        builder: (context) => OTPScreen(),
         settings: data,
       );
     },

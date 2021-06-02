@@ -1,11 +1,12 @@
+import 'package:logic/views/authentication/otp/otp.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:logic/_core/services/httpService.dart';
+import 'package:logic/_core/services/firebaseService.dart';
 import 'package:logic/_core/services/connectivityService.dart';
 import 'package:logic/_core/services/userService.dart';
 import 'package:logic/_core/services/utilsService.dart';
 import 'package:logic/views/authentication/login/loginScreen.dart';
-import 'package:logic/views/authentication/signUp/signUpScreen.dart';
+
 import 'package:logic/views/profile/profileScreen.dart';
 import 'package:logic/views/splashScreen/splashScreen.dart';
 
@@ -13,7 +14,7 @@ import 'package:logic/views/splashScreen/splashScreen.dart';
   routes: [
     MaterialRoute(page: SplashScreen, initial: true),
     MaterialRoute(page: LoginScreen),
-    MaterialRoute(page: SignUpScreen),
+    MaterialRoute(page: OTPScreen),
     MaterialRoute(page: ProfileScreen)
   ],
   dependencies: [
@@ -22,7 +23,7 @@ import 'package:logic/views/splashScreen/splashScreen.dart';
     LazySingleton(classType: UtilsService),
     LazySingleton(classType: ConnectivityService),
     LazySingleton(classType: SnackbarService),
-    LazySingleton(classType: HttpService),
+    LazySingleton(classType: FirebaseService),
     LazySingleton(classType: UserService)
   ],
 )

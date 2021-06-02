@@ -18,11 +18,13 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 2), () {
       UserService _user = locator<UserService>();
-      if (_user.userToken != "") {
-        // _nav.replaceWith(Routes.homeScreen);
-      } else {
-        _nav.replaceWith(Routes.loginScreen);
-      }
+      _user.checkLogin().then((val) {
+        if (val != null) {
+          _nav.replaceWith(Routes.profileScreen);
+        } else {
+          _nav.replaceWith(Routes.loginScreen);
+        }
+      });
     });
   }
 

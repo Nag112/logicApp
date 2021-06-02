@@ -6,10 +6,13 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:bot_toast/bot_toast.dart';
 import '_core/app/app.locator.dart';
 import '_core/app/app.router.dart';
+import '_core/models/userCredentialModel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
+  Hive
+    ..initFlutter()
+    ..registerAdapter(UsercredentialmodelAdapter());
   await Firebase.initializeApp();
   setupLocator();
   runApp(MyApp());

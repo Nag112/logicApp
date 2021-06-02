@@ -31,6 +31,7 @@ dependencies:
   hive_flutter: ^1.0.0
   observable_ish: ^3.0.0
   path_provider: ^2.0.1
+  pinput: ^1.2.0
   shimmer: ^2.0.0
   stacked: ^2.1.7
   stacked_hooks: ^0.2.0
@@ -45,7 +46,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter_icons:
   android: true
